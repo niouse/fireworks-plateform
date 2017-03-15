@@ -130,7 +130,8 @@ ________________________________________________________________________________
 					<TextField
 						  ref="email"
 						  hintText="Hint Text"
-						  type="email" pattern="[^ @]*@[^ @]*"
+						  type="email" 
+						  pattern="[^ @]*@[^ @]*"
 						  floatingLabelText="Email"				
 						  required="true"
 						  style={styles.mailInput}

@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme.js'
-import materialTrb from "./themes/materialui.trb.js"
+import materialRuggieri from "./themes/materialui.ruggieri.js"
 
 // THEMES
 import themes from "./themes/index.js";
@@ -41,7 +41,7 @@ constructor(props){
 	let screenWidth=window.screen.availWidth //*devicePixelRatio
 	console.log(screenWidth)
 	let stylesOptions = {
-		theme : themes['trb'],
+		theme : themes['ruggieri'],
 		device : device,
 		screenHeight : Math.round(screenHeight),
 		screenWidth :  Math.round(screenWidth)
@@ -64,7 +64,7 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		
+		document.body.style['background-color']=this.state.stylesOptions.theme.colors.main
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -104,7 +104,7 @@ ________________________________________________________________________________
 
 	render() {
 		return  (
-			<MuiThemeProvider  muiTheme={getMuiTheme(materialTrb)}>
+			<MuiThemeProvider  muiTheme={getMuiTheme(materialRuggieri)}>
 				<App 
 					{...this.props}
 					styles={this.state.styles}

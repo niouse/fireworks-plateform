@@ -49,7 +49,10 @@ export default class App extends Component {
       
 		  <div className="container">
 			<header style={styles.header}>
-				
+				<div style={styles.trbBand}>
+					<img src="./comon/fond-ruggieri-base.png" style={styles.trbLogo}></img>
+					<div style={styles.trbTitle}>RUGGIERI PLATEFORM</div>
+            	</div>
 	  			<Navigation 
 					style={styles.navigation}
 					stylesOptions={this.props.stylesOptions}

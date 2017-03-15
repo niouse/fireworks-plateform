@@ -25,10 +25,12 @@ const styles=function(options) {
 			},
 			clocksContainer : {
 				width : "100%",
-				maxWidth : "1280px",
-				margin : "50px 0 0 0",
-				position : "fixed",
-				bottom : "100px"
+				margin : "100px 0 0 0",
+				borderTopStyle : "solid",
+				borderTopColor : theme.colors.primary,
+				borderTopWidth : "1px",
+				//position : "fixed",
+				//bottom : "100px"
 			}
 	   },
 	   smartPhone : {
@@ -49,10 +51,10 @@ const styles=function(options) {
 			},
 			clocksContainer : {
 				width : "100%",
-				maxWidth : "1280px",
-				margin : "50px 0 0 0",
-				position : "fixed",
-				bottom : "100px"
+				margin : "100px 0 0 0",
+				borderTopStyle : "solid",
+				borderTopColor : theme.colors.primary,
+				borderTopWidth : "1px",
 			}
 	   }
    }

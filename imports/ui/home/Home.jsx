@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-// EXTERNAL LIBS
+// APP COMPONENTS
 import ClassicTab from "./../comon/classic-tab/ClassicTab.container.jsx";
+import Clocks from "./../comon/clocks/Clocks.container.jsx";
 
 export default class  Home extends Component {
 
@@ -107,6 +108,7 @@ ________________________________________________________________________________
 						)
 					})}
 				</div>
+				<Clocks stylesOptions={this.props.route.stylesOptions}/>
 			</div>
 		);
 	}
