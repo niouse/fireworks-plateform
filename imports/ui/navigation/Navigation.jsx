@@ -244,7 +244,12 @@ ________________________________________________________________________________
 		  targetOrigin={{horizontal: 'left', vertical: 'top'}}
 		  menuStyle={styles.iconButtonMenu.menu}
 		>
-		  <MenuItem  style={styles.iconButtonMenu.list} primaryText="home" rightIcon={<ActionHome style={styles.icons}/>}/>
+		  <MenuItem  
+			  style={styles.iconButtonMenu.list} 
+			  primaryText="home" 
+			  rightIcon={<ActionHome style={styles.icons}/>}
+			   onTouchTap={()=>this.goToPage("home")}
+		  />
 		  <MenuItem  
 			  style={styles.iconButtonMenu.list} 
 			  primaryText="comptes" 

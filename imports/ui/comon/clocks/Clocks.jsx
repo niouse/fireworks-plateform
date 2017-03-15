@@ -102,7 +102,11 @@ ________________________________________________________________________________
 			<div style = {styles.container}>
 				{locations.map((location, index)=>{
 					return (
-							<Clock  key={index} location={location} timeStep={this.state.timeStep} styles={stylesClock}/>
+							<Clock  
+								key={index} 
+								location={location} 
+								timeStep={this.state.timeStep} 
+								styles={stylesClock}/>
 					)
 				})}
 				

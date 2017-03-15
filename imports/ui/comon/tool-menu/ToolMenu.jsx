@@ -1,35 +1,39 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
-import Tracker from 'tracker-component';
+// EXTERNAL LIBS
+//import moment from 'moment';
 
-import Navigation from "./Navigation.jsx";
+//MATERIAL COMPNENTS
+import Drawer from 'material-ui/Drawer';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Dialog from 'material-ui/Dialog';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
-import styles from "./Navigation.styles.js";
+//import IconButton from 'material-ui/IconButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import ActionInfo from 'material-ui/svg-icons/action/info';
+import CommunicationImportExport from 'material-ui/svg-icons/communication/import-export';
+import ActionSearch from 'material-ui/svg-icons/action/search';
 
-export default class  NavigationContainer extends Tracker.Component {
 
-constructor(props){
-	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
-	this.state = {
-		canTest : false,
-		styles : styles(props.stylesOptions),
-		user : false
+
+export default class  ToolMenu extends Component {
+
+	constructor(props){
+		super(props);
+		//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+
+		this.state = {
+			canTest : false,
+			message : ""
+		}
+
 	}
-
-	this.autorun(() => { 
-		let user = Meteor.user() || false;
-		this.setState({
-			user: Meteor.user(),
-		});		  
-	});
-}
 
 /*_______________________________________________________________________________________________________________
 _________________________________________________________________________________________________________________  
@@ -42,7 +46,7 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		Meteor.subscribe("userData");
+
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -98,15 +102,41 @@ _____________________________________________COMPONENT TEMPLATE_________________
 _________________________________________________________________________________________________________________*/
 
 	render() {
-		const style=this.props.style || {width:"100%", height:"100%"}
+		const styles = this.props.styles
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
-					{...this.props}
-					styles={this.state.styles}
-					user={this.state.user}
-				/>
-			</div>
+				<div style={styles.container}>
+					<div style={styles.title}>{this.props.title}</div>
+					<div style={styles.toolMenu}>
+						 <FloatingActionButton 
+							 style={styles.toolButton}  
+							 onTouchTap={(key)=>this.props.openSearch(key)}
+							 {...styles.toolButton.attr}
+						>
+							<ActionSearch />
+						</FloatingActionButton>
+						<FloatingActionButton  
+							style={styles.toolButton}  
+							onTouchTap={()=>this.props.openAdd()}
+							{...styles.toolButton.attr}
+						>
+							<ContentAdd />
+						</FloatingActionButton>
+						<FloatingActionButton  
+							style={styles.toolButton}   
+							onTouchTap={()=>this.props.toggleDrawer('Export')}
+							{...styles.toolButton.attr}
+						>
+							<CommunicationImportExport />
+						</FloatingActionButton>
+						<FloatingActionButton  
+							style={styles.toolButton}   
+							onTouchTap={()=>this.props.goToHelp()}
+							{...styles.toolButton.attr}
+						>
+							<ActionInfo />
+						</FloatingActionButton>
+					</div>
+				</div>
 		);
 	}
 }

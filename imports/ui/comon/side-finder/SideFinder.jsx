@@ -1,35 +1,36 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
-import Tracker from 'tracker-component';
+// EXTERNAL LIBS
+//import moment from 'moment';
 
-import Navigation from "./Navigation.jsx";
+//MATERIAL COMPNENTS
+import {List, ListItem} from 'material-ui/List';
+import FlatButton from 'material-ui/FlatButton';
 
-import styles from "./Navigation.styles.js";
 
-export default class  NavigationContainer extends Tracker.Component {
 
-constructor(props){
-	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
-	this.state = {
-		canTest : false,
-		styles : styles(props.stylesOptions),
-		user : false
+//MATERIAL ICONS
+import ActionSearch from 'material-ui/svg-icons/action/search';
+
+
+
+export default class  SideFinder extends Component {
+
+	constructor(props){
+		super(props);
+		//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+		//console.log(props.itemList)
+		this.state = {
+			canTest : false,
+			message : "",
+			itemList : props.itemList
+		}
+
 	}
-
-	this.autorun(() => { 
-		let user = Meteor.user() || false;
-		this.setState({
-			user: Meteor.user(),
-		});		  
-	});
-}
 
 /*_______________________________________________________________________________________________________________
 _________________________________________________________________________________________________________________  
@@ -42,11 +43,13 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		Meteor.subscribe("userData");
+
 	}
 
 	componentWillReceiveProps(newProps) {
-
+		this.setState({
+			itemList : newProps.itemList
+		})
 	}
 
 	/*shouldComponentUpdate(){
@@ -79,6 +82,22 @@ ________________________________________________________________________________
 			showMessage : true
 		})
 	}
+	
+	filterList(event){
+		event.preventDefault();
+		var updatedList = this.props.itemList;
+		
+		updatedList = updatedList.filter(function(item){
+			//console.log(event.target.value.toLowerCase())
+		  return ((item.primaryText.toLowerCase().search(
+			event.target.value.toLowerCase()) !== -1) || (item.primaryText.toLowerCase().search(
+			event.target.value.toLowerCase()) !== -1) || (item.primaryText.toLowerCase().search(
+			event.target.value.toLowerCase()) !== -1));
+		});
+		//console.log(updatedList)
+		this.setState({itemList: updatedList});
+		//console.log(this.state.quizzList)
+	}
 
 	test(){
 
@@ -98,14 +117,25 @@ _____________________________________________COMPONENT TEMPLATE_________________
 _________________________________________________________________________________________________________________*/
 
 	render() {
-		const style=this.props.style || {width:"100%", height:"100%"}
+		const styles = this.props.styles
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
-					{...this.props}
-					styles={this.state.styles}
-					user={this.state.user}
-				/>
+			<div>
+				<ActionSearch style={styles.iconStyles} />
+				<input type="text" placeholder="Search" style={styles.searchBar} onChange={(event)=>this.filterList(event)}/>
+				<List>
+					{(this.state.itemList && this.state.itemList[0]) ? 
+					  this.state.itemList.map((x, index)=>{
+					  return (
+						  <ListItem key={"card"+ index}
+							  primaryText={x.primaryText}
+							  secondaryText={x.secondaryText}
+							  leftIcon={x.leftIcon}
+							  onTouchTap={()=>this.props.handleItemClick(x.id)}
+							/>)
+							  }	
+							) :
+					  <p>No records</p>}
+				</List>
 			</div>
 		);
 	}

@@ -1,35 +1,26 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
-import Tracker from 'tracker-component';
+// EXTERNAL LIBS
+import Highcharts from 'highcharts';
 
-import Navigation from "./Navigation.jsx";
 
-import styles from "./Navigation.styles.js";
 
-export default class  NavigationContainer extends Tracker.Component {
+export default class  ChartSimple extends Component {
 
-constructor(props){
-	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
-	this.state = {
-		canTest : false,
-		styles : styles(props.stylesOptions),
-		user : false
+	constructor(props){
+		super(props);
+		//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+
+		this.state = {
+			canTest : false,
+			message : ""
+		}
+
 	}
-
-	this.autorun(() => { 
-		let user = Meteor.user() || false;
-		this.setState({
-			user: Meteor.user(),
-		});		  
-	});
-}
 
 /*_______________________________________________________________________________________________________________
 _________________________________________________________________________________________________________________  
@@ -37,16 +28,12 @@ _____________________________________________COMPONENT LIFE TIME________________
 _________________________________________________________________________________________________________________*/
 
 
-	componentWillMount() { 
-
-	}
-
 	componentDidMount(){
-		Meteor.subscribe("userData");
+		this.chart = Highcharts.chart(this.props.chartId, this.props.options);
 	}
 
 	componentWillReceiveProps(newProps) {
-
+		this.chart = Highcharts.chart(this.props.chartId, this.props.options);
 	}
 
 	/*shouldComponentUpdate(){
@@ -98,14 +85,14 @@ _____________________________________________COMPONENT TEMPLATE_________________
 _________________________________________________________________________________________________________________*/
 
 	render() {
-		const style=this.props.style || {width:"100%", height:"100%"}
+		const styles = this.props.styles
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
-					{...this.props}
-					styles={this.state.styles}
-					user={this.state.user}
-				/>
+			<div style={styles.container}>
+				<div 
+					id={this.props.chartId} 
+					style={styles.chart} 
+				>
+				</div>
 			</div>
 		);
 	}

@@ -1,34 +1,46 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
+// EXTERNAL LIBS
 import Tracker from 'tracker-component';
 
-import Navigation from "./Navigation.jsx";
+// APPS COMPONENTS
+import UserViewer from "./UserViewer.jsx";
+//import Loading from "./../comon/loading/Loading.container.jsx";
 
-import styles from "./Navigation.styles.js";
+// STYLES
+import styles from "./UserViewer.styles.js";
 
-export default class  NavigationContainer extends Tracker.Component {
+// MONGO APIS
+//import { AllusersMongo } from './../api/Allusers/Allusers.js';
+
+
+export default class  UserViewerContainer extends Tracker.Component {
 
 constructor(props){
 	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
+	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+
 	this.state = {
 		canTest : false,
-		styles : styles(props.stylesOptions),
-		user : false
+		styles : styles(props.route.stylesOptions),
 	}
-
-	this.autorun(() => { 
+	
+	 this.autorun(() => {	 
+		Meteor.subscribe("allUsers");
+		 Meteor.subscribe("userData");
 		let user = Meteor.user() || false;
+		var userList = Meteor.users.find({}).fetch();			 
 		this.setState({
-			user: Meteor.user(),
+			userList : userList,
+			currentUser: user,
 		});		  
-	});
+	  });
+
+
 }
 
 /*_______________________________________________________________________________________________________________
@@ -42,7 +54,7 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		Meteor.subscribe("userData");
+		
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -73,13 +85,6 @@ ________________________________________________________________________________
 		})
 	}
 
-	showMessage(message){
-		this.setState({
-			message : message,
-			showMessage : true
-		})
-	}
-
 	test(){
 
 	}
@@ -96,16 +101,19 @@ ________________________________________________________________________________
 ___________________________________________________________________________________________________________________  
 _____________________________________________COMPONENT TEMPLATE____________________________________________________
 _________________________________________________________________________________________________________________*/
-
 	render() {
 		const style=this.props.style || {width:"100%", height:"100%"}
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
-					{...this.props}
-					styles={this.state.styles}
-					user={this.state.user}
-				/>
+			<div style={style}>
+				{this.state.userList ? 
+					<UserViewer 
+						{...this.props}
+						userList = {this.state.userList}
+						styles={this.state.styles}
+						currentUser={this.state.currentUser}
+					/>:
+					<Loading />
+				}
 			</div>
 		);
 	}

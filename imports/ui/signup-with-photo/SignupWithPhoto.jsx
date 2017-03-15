@@ -237,7 +237,7 @@ ________________________________________________________________________________
 							  id="username"
 							  name="username"
 							  hintText="Hint Text"
-							  floatingLabelText="pseudo"
+							  floatingLabelText="pseudo*"
 							  required="true"
 							  style={styles.fields.textField}
 							/>
@@ -262,7 +262,7 @@ ________________________________________________________________________________
 							  hintText="Hint Text"
 							  type="email" 
 							  pattern="[^ @]*@[^ @]*"
-							  floatingLabelText="Email"
+							  floatingLabelText="Email*"
 							  required="true"
 							  style={styles.fields.textField}
 							/>
@@ -273,7 +273,7 @@ ________________________________________________________________________________
 							  type="password"
 							  pattern=".{5,10}"
 							  hintText="Hint Text"
-							  floatingLabelText="Password"
+							  floatingLabelText="Password*"
 							  required="true"
 							  style={styles.fields.textField}
 							/>

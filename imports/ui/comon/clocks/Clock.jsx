@@ -150,29 +150,32 @@ export default class Clock extends Component {
 		let styles = this.props.styles
 		return (
 			<div style={styles.container}>
-				<div>
+
+				<div style={styles.titleBox}>
 					<div style={styles.title}>{this.props.location.name}</div>
-					<div style={styles.time}> {this.state.time} </div>
-					<div style={styles.buttonBox}> 
-						<IconButton 
-							tooltip={tooltip="flight to "+this.props.location.name}
-							onClick={()=>this.goToFlight(this.props.location.code)}
-						>
-							<Flight style={styles.button} color="#b89a53" hoverColor="blue"/> 
-						 </IconButton>
-						<IconButton 
-							tooltip={tooltip="Hotel in "+this.props.location.name}
-							onClick={()=>this.goToFlight(this.props.location.code)}
-						>
-							<Hotel style={styles.button} color="#b89a53" hoverColor="blue"/> 
-						 </IconButton>
-						<IconButton 
-							tooltip={tooltip="Events in "+this.props.location.name}
-							onClick={()=>this.goToFlight(this.props.location.code)}
-						>
-							<ZoomIn style={styles.button} color="#b89a53" hoverColor="blue"/> 
-    					</IconButton>							
-					</div>
+				</div>
+				<div style={styles.timeBox}> 
+					<div style={styles.time}>{this.state.time} </div>
+				</div>
+				<div style={styles.buttonBox}> 
+					<IconButton 
+						tooltip={tooltip="flight to "+this.props.location.name}
+						onClick={()=>this.goToFlight(this.props.location.code)}
+					>
+						<Flight style={styles.button} color="#b89a53" hoverColor="blue"/> 
+					 </IconButton>
+					<IconButton 
+						tooltip={tooltip="Hotel in "+this.props.location.name}
+						onClick={()=>this.goToFlight(this.props.location.code)}
+					>
+						<Hotel style={styles.button} color="#b89a53" hoverColor="blue"/> 
+					 </IconButton>
+					<IconButton 
+						tooltip={tooltip="Events in "+this.props.location.name}
+						onClick={()=>this.goToFlight(this.props.location.code)}
+					>
+						<ZoomIn style={styles.button} color="#b89a53" hoverColor="blue"/> 
+					</IconButton>							
 				</div>
 			</div>
 		)

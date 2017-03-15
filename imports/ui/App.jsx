@@ -7,6 +7,8 @@ import Login from "./login/Login.container.jsx";
 import Signup from './signup/Signup.container.jsx';
 import SignupWithPhoto from './signup-with-photo/SignupWithPhoto.container.jsx';
 import Home from "./home/Home.container.jsx";
+import UserViewer from "./user-viewer/UserViewer.container.jsx";
+import Help from "./help/Help.container.jsx";
 import PageNotFound from './PageNotFound.jsx';
 
 
@@ -67,6 +69,16 @@ export default class App extends Component {
 				  	<Route 
 						path="/home" 
 						component={Home} 
+						stylesOptions={this.props.stylesOptions}
+					/>
+				  	<Route 
+						path="/user-viewer" 
+						component={UserViewer} 
+						stylesOptions={this.props.stylesOptions}
+					/>
+				    <Route 
+						path="/help/:component" 
+						component={Help} 
 						stylesOptions={this.props.stylesOptions}
 					/>
 				    <Route 

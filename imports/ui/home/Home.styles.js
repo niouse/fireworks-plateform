@@ -35,7 +35,7 @@ const styles=function(options) {
 	   },
 	   smartPhone : {
 		   container : {
-				width : "100%"
+				maxWidth: "100%",
 			},
 			itemGrid : {
 				display : "flex",

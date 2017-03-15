@@ -24,6 +24,7 @@ const styles=function(options) {
 				display : "flex",
 				alignItems : "center",
 				justifyContent : "flex-end",
+				paddingRight : "10px"
 				//border : "1px solid blue"
 			},
 			left : {

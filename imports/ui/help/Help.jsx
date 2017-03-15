@@ -1,35 +1,25 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
-import Tracker from 'tracker-component';
+// EXTERNAL LIBS
+//import moment from 'moment';
+//import Radium from 'radium';
 
-import Navigation from "./Navigation.jsx";
+export default class  Help extends Component {
 
-import styles from "./Navigation.styles.js";
+	constructor(props){
+		super(props);
+		//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 
-export default class  NavigationContainer extends Tracker.Component {
+		this.state = {
+			canTest : false,
+			message : ""
+		}
 
-constructor(props){
-	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
-	this.state = {
-		canTest : false,
-		styles : styles(props.stylesOptions),
-		user : false
 	}
-
-	this.autorun(() => { 
-		let user = Meteor.user() || false;
-		this.setState({
-			user: Meteor.user(),
-		});		  
-	});
-}
 
 /*_______________________________________________________________________________________________________________
 _________________________________________________________________________________________________________________  
@@ -42,7 +32,7 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		Meteor.subscribe("userData");
+
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -98,14 +88,11 @@ _____________________________________________COMPONENT TEMPLATE_________________
 _________________________________________________________________________________________________________________*/
 
 	render() {
-		const style=this.props.style || {width:"100%", height:"100%"}
+		const styles = this.props.styles
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
-					{...this.props}
-					styles={this.state.styles}
-					user={this.state.user}
-				/>
+			<div className="container" style={styles.container}>
+				<h1 style={styles.title}>Help Component</h1>
+				<p style={styles.content}>{this.props.params.component}</p>
 			</div>
 		);
 	}

@@ -25,7 +25,7 @@ module.exports = [
 		},
 		{
 			name : 'ruggieri-la-team',
-			url : "/component4",
+			url : "/user-viewer",
 			level : 1,
 			text : "component4 description",
 		},

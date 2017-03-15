@@ -1,34 +1,27 @@
-// REACT COMPONENTS
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 //import PureRenderMixin from 'react-addons-pure-render-mixin';
 //import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, Redirect } from 'react-router';
 
-// EXTERNAL LIB
-import Tracker from 'tracker-component';
 
-import Navigation from "./Navigation.jsx";
 
-import styles from "./Navigation.styles.js";
+import UserDetails from "./UserDetails.jsx";
 
-export default class  NavigationContainer extends Tracker.Component {
+import styles from "./UserDetails.styles.js";
+
+
+
+export default class  UserDetailsContainer extends Component {
 
 constructor(props){
 	super(props);
-	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
-	
+	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+
 	this.state = {
 		canTest : false,
 		styles : styles(props.stylesOptions),
-		user : false
 	}
-
-	this.autorun(() => { 
-		let user = Meteor.user() || false;
-		this.setState({
-			user: Meteor.user(),
-		});		  
-	});
 }
 
 /*_______________________________________________________________________________________________________________
@@ -42,7 +35,7 @@ ________________________________________________________________________________
 	}
 
 	componentDidMount(){
-		Meteor.subscribe("userData");
+
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -100,12 +93,13 @@ ________________________________________________________________________________
 	render() {
 		const style=this.props.style || {width:"100%", height:"100%"}
 		return  (
-			<div id="navigation" style={style}>
-				<Navigation 
+			<div style={style}>
+				{this.props.currentUser ?
+					<UserDetails 
 					{...this.props}
 					styles={this.state.styles}
-					user={this.state.user}
-				/>
+				/>:
+				<p>loading</p>}
 			</div>
 		);
 	}
