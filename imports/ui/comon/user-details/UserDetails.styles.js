@@ -33,7 +33,11 @@ const styles=function(options) {
 				   margin:"10px 0 0 0",
 				   //border:"1px solid red"
 			   },
-			   column : {
+			   column1 : {
+				   width:"100%", 
+				   //border:"1px solid red"
+			   },
+			   column2 : {
 				   width:"100%", 
 				   //border:"1px solid red"
 			   }
@@ -45,27 +49,34 @@ const styles=function(options) {
 				height : "100%",
 			    backgroundColor : theme.colors.component,
 			    fontFamily : "Play",
+			     padding : "20px",
 			},
 			userTitle : {
 				color : theme.colors.primary,
 				textAlign : "center",
 				marginTop : "30px",
-				width : "100%"
+				//width : "100%"
 			},
 
 		    table : {
 			   color:theme.colors.primary, 
-			   width:"100%", 
-			   padding:"10px", 
-			   fonSize:"1.2em",
+			   //width:"100%", 
+			   //padding:"10px", 
+			   fonSize:"0.8em",
 			   row : {
 				   display:"flex", 
-				   width:"100%", 
+				   //width:"100%", 
 				   margin:"10px 0 00"
 			   },
-			   column : {
-				   width:"100%", 
-			   }
+			   column1 : {
+				   width:"150px", 
+			   },
+				column2 : {
+				  // width:"70px", 
+			   },
+				chart : {
+					//width:"100%"
+				}
 		   }
 	   }
    }

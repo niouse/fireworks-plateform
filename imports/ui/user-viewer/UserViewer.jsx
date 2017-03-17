@@ -19,10 +19,6 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 //MATERIAL ICONS
-import PlayArrow from 'material-ui/svg-icons/av/play-arrow.js';
-import Stop from 'material-ui/svg-icons/av/stop.js';
-import Pause from 'material-ui/svg-icons/av/pause.js';
-import FiberManualRecord from 'material-ui/svg-icons/av/fiber-manual-record.js';
 import Refresh from 'material-ui/svg-icons/navigation/refresh.js';
 import ImportExport from 'material-ui/svg-icons/communication/import-export.js';
 import Settings from 'material-ui/svg-icons/action/settings.js';
@@ -150,7 +146,7 @@ ________________________________________________________________________________
 						title="LA TEAM"
 						openSearch={()=>this.toggleStateBool('openSearch')}
 						openAdd={()=>browserHistory.push("/signup")}
-						goToHelp={()=>browserHistory.push("/help/babou")}
+						goToHelp={()=>browserHistory.push("/help/user-viewer")}
 					/>
 			    </div>
 				

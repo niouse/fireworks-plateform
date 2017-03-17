@@ -75,7 +75,7 @@ const styles=function(options) {
 	   },
 	   smartPhone : {
 			 container : {
-				zIndex : 200,
+				zIndex : 9999,
 				width : "100%",
 				height : "35px",
 				display : "flex",

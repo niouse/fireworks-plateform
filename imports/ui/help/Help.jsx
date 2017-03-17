@@ -91,7 +91,10 @@ ________________________________________________________________________________
 		const styles = this.props.styles
 		return  (
 			<div className="container" style={styles.container}>
-				<h1 style={styles.title}>Help Component</h1>
+				<h1 style={styles.title}>A propos de la plateforme Ruggieri</h1>
+				<p>Cette plateforme est un outil connecté multi-support (PC, tablette et smartphone) conçue par Ruggieri afin d'optimiser l'organisation des évenements, en particuliers les feux d'artifices, à travers le monde.</p>
+				
+				
 				<p style={styles.content}>{this.props.params.component}</p>
 			</div>
 		);

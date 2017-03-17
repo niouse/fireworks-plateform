@@ -30,13 +30,13 @@ const styles=function(options) {
 		   },
 		   userFinder : {
 			   width : "600px",
-			   height : "600px",
+			   height : "auto",
 			   //border:"1px solid blue"
 			   
 		   },
 		   userDetails:{
 			   width : "300px",
-			   height : "600px",
+			   height : "auto",
 			   //border:"1px solid blue"
 		   }
 	   },

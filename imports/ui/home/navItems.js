@@ -19,7 +19,7 @@ module.exports = [
 		},
 		{
 			name : 'ruggieri-la-carte',
-			url : "/component4",
+			url : "/map",
 			level : 1,
 			text : "component4 description",
 		},

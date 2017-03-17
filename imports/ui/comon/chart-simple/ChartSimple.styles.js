@@ -8,12 +8,12 @@ const styles=function(options) {
    let styles = {
 	   pc : {
 		   container : {
-			   hight : "300px"
+			   //hight : "300px"
 			}
 	   },
 	   smartPhone : {
 		   container : {
-
+			   width : "100%"
 			}
 	   }
    }

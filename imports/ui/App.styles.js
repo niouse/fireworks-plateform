@@ -12,7 +12,8 @@ const styles=function(options) {
 		   },
 			header : {
 				width : "100vw",
-				height : "100px"
+				height : "100px",
+				zIndex:999,
 			},
 		    trbBand : {
 				height : "50px",

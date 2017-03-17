@@ -132,8 +132,8 @@ ________________________________________________________________________________
 			if(key === 'lng' || key === 'photo' || key ==='_id' || key==="emails" || key==='services' || key==='createdAt'){continue}
 			table.push(
 				<div key={key} style={styles.table.row}>
-					<div style={styles.table.column}>{key} :</div>
-					<div style={styles.table.column}>{user[key]}</div>
+					<div style={styles.table.column1}>{key} :</div>
+					<div style={styles.table.column2}>{user[key]}</div>
 				</div>
 			)
 		}
@@ -164,8 +164,8 @@ ________________________________________________________________________________
 				<div style={styles.userTitle}>{this.props.currentUser.firstName + ' ' + this.props.currentUser.lastName}</div>
 				<div style={styles.table}>
 					<div style={styles.table.row}>
-						<div style={styles.table.column}>email :</div>
-						<div style={styles.table.column}>{this.props.currentUser.emails[0].address}</div>
+						<div style={styles.table.column1}>email :</div>
+						<div style={styles.table.column2}>{this.props.currentUser.emails[0].address}</div>
 					</div>
 					{this.getTable(this.props.currentUser)}
 				</div>
@@ -173,6 +173,8 @@ ________________________________________________________________________________
 					stylesOptions={this.props.stylesOptions}
 					options={options} 
 					chartId="PieChart"
+					style={styles.chart}
+					
 				/>
 			</div> 
 		);

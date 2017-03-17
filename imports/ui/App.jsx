@@ -8,6 +8,7 @@ import Signup from './signup/Signup.container.jsx';
 import SignupWithPhoto from './signup-with-photo/SignupWithPhoto.container.jsx';
 import Home from "./home/Home.container.jsx";
 import UserViewer from "./user-viewer/UserViewer.container.jsx";
+import Map from "./map/Map.container.jsx";
 import Help from "./help/Help.container.jsx";
 import PageNotFound from './PageNotFound.jsx';
 
@@ -74,6 +75,11 @@ export default class App extends Component {
 				  	<Route 
 						path="/user-viewer" 
 						component={UserViewer} 
+						stylesOptions={this.props.stylesOptions}
+					/>
+				    <Route 
+						path="/map" 
+						component={Map} 
 						stylesOptions={this.props.stylesOptions}
 					/>
 				    <Route 

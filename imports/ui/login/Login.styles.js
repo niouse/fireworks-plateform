@@ -16,6 +16,9 @@ const styles = function (options) {
                 //borderColor : theme.colors.primary,
                 //borderStyle : "solid",
             },
+			title : {
+				color:theme.colors.primary,
+			},
             form: {
                 display: "flex",
                 justifyContent: "center",
@@ -52,6 +55,9 @@ const styles = function (options) {
                 //borderColor : theme.colors.primary,
                 //borderStyle : "solid",
             },
+			title : {
+				color:theme.colors.primary,
+			},
             form: {
                 display: "flex",
                 justifyContent: "center",

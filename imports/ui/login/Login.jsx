@@ -125,7 +125,7 @@ ________________________________________________________________________________
 		//console.log(styles)
 		return  (
 			<div style={styles.container}>
-				<h1>LOGIN</h1>
+				<h1 style={styles.title}>LOGIN</h1>
 				 <form className="register" style={styles.form} onSubmit={this.submitUser.bind(this)}>
 					<TextField
 						  ref="email"
@@ -139,7 +139,7 @@ ________________________________________________________________________________
 
 					 <TextField
 						  ref="password"
-						  type="password" pattern=".{5,10}"
+						  type="password" pattern=".{5,20}"
 						  hintText="Hint Text"
 						  floatingLabelText="Password"
 						  required="true"

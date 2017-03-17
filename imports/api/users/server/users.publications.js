@@ -24,13 +24,13 @@ Meteor.publish("userDetail", function(id) {
 });
 
 
-Meteor.publish("userList", function() {
+Meteor.publish("usersList", function() {
 	return Meteor.users.find({}, {
 	   fields: {
 		   _id : 1,
 		  "profile.lastName" : 1,
 		  "profile.firstName" : 1,
-		  "profile.imgUrl" : 1,
+		  "profile.photo" : 1,
 		   "profile.location" : 1
 	   }
 		

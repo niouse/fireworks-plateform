@@ -19,6 +19,7 @@ constructor(props){
 	super(props);
 	//this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);	
 	let device;
+	Meteor.subscribe("allUsers");
 	
 	if( navigator.userAgent.match(/Android/i)
 	 || navigator.userAgent.match(/webOS/i)
